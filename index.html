@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My List</title>
+  <script src="js/inputHandler.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/front/newset.js"></script>
+  <script src="js/utils/lookup.js"></script>
+  <script src="js/database.js"></script>
+
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  <h1>SpikeScout</h1>
+  <div id="datasets">
+    <h2>Datasets</h2>
+    <div class="dataset" onclick="createNewDataset()">Create a new dataset</div>
+  </div>
+  <hr>
+    <div id="teamDataInput">
+        <input type="number" id="teamName" placeholder="Team number">
+        <input type="text" id="dimensions" placeholder="Dimensions">
+        <input type="text" id="driveType" placeholder="Drive type">
+        <input type="text" id="speed" placeholder="Speed">
+        <input type="text" id="wheelDiameter" placeholder="Wheel diameter">
+        <input type="text" id="tiers" placeholder="Tiers">
+        <input type="text" id="pieces" placeholder="Pieces">
+        <input type="text" id="preferredPiece" placeholder="Preferred piece">
+        <input type="text" id="howScoreCone">
+        <input type="text" id="howScoreCube">
+        <input type="text" id="preferredScoring">
+        <input type="text" id="coneIntake">
+        <input type="text" id="cubeIntake">
+        <input type="text" id="whereCollectCargo">
+        <input type="text" id="preferredLocation">
+        <input type="text" id="orientation">
+        <input type="text" id="dockAndEngage">
+        <input type="text" id="multipleAttepmts">
+        <input type="text" id="canAutobalance">
+        <input type="text" id="cycleTime">
+        <input type="text" id="preloadCargoType">
+        <input type="text" id="autoTiers"> 
+    </div>
+  <button onclick="addTeam()">Add</button>
+  <ul id="teamData"></ul>
+</body>
+</html>

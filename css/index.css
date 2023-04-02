@@ -1,0 +1,14 @@
+.dataset{
+    width: 10vw;
+    height: 10vw;
+    border-radius: 1vw;
+    background-color: #afafaf;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: ease-out 0.5s;
+}
+.dataset:hover{
+    filter: brightness(1.25);
+    cursor: pointer;
+}
