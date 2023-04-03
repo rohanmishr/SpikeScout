@@ -47,8 +47,19 @@ class Data{
     teamScore(team) {
         var score = [];
         var fields = this.fields();
+        for (var i=0; i<=fields.length; i++){
+            if (fields[i].tag === "calculate"){
+                score += fields[i].value;
+            }
+        }
+        return score;
     }
 }
+
+var teamScoreTest = teamScore("293");
+console.log(teamScoreTest);
+
+
 var Datasets = [];
 var TestSet = new Data("Test Set");
 Datasets.push(TestSet);
