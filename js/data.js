@@ -9,11 +9,11 @@ class Data{
         this.data.set(num, new Map());
     }
 
-    set(team, field, value){
+    setVal(team, field, value){
         this.data.get(team).set(field, value);
     }
 
-    get(team, field){
+    getVal(team, field){
         return this.data.get(team).get(field);
     }
 
@@ -43,21 +43,28 @@ class Data{
         }
         return r;
     }
+
+    teamScore(team) {
+        var score = [];
+        var fields = this.fields();
+    }
 }
 var Datasets = [];
 var TestSet = new Data("Test Set");
 Datasets.push(TestSet);
 
-var teamName = 1;
+var teamName = "Team 25";
+var robotDesc = "30x41 chassis, swerve drive (18 ft/s) 4 wheel diameter";
 
 TestSet.initTeam("25");
-TestSet.set("25", "Team Name", teamName);
-TestSet.set("25", "Robot Description", "30x41 chassis, swerve drive (18 ft/s) 4 wheel diameter");
-TestSet.set("25", "Autonomous", "Score top + mobility, score + autobalance");
+TestSet.setVal("25", "Team Name", teamName);
+TestSet.setVal("25", "Robot Description", robotDesc);
+TestSet.setVal("25", "Autonomous", "Score top + mobility, score + autobalance");
+TestSet.setVal("25", "Drive Train", "Swerve");
 TestSet.initTeam("41");
 TestSet.initTeam("293");
-TestSet.set("293", "Team Name", "SPIKE");
+TestSet.setVal("293", "Team Name", "SPIKE");
 TestSet.initTeam("2495");
-TestSet.set("2495", "Team Name", "Hive Mind");
+TestSet.setVal("2495", "Team Name", "Hive Mind");
 TestSet.initTeam("254");
 

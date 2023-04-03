@@ -34,7 +34,7 @@ function selectDataset(dataset){
         var row = `<tr><td>${team}</td>`;
         for(var j = 0; j < DATASET.fields().length; j++){
             var field = DATASET.fields()[j];
-            row += `<td>${DATASET.get(team, field) ?? "No data"}</td>`;
+            row += `<td>${DATASET.getVal(team, field) ?? "No data"}</td>`;
         }
         row += "</tr>";
         rows += row;
@@ -55,13 +55,13 @@ function renderAddTree(DATASET){
             var field = DATASET.fields()[j];
             fields += `<li><span class="caret">${field ?? ""}</span>
                 <ul class="nested">
-                    ${DATASET.get(team, field) ?? "No data"}
+                    ${DATASET.getVal(team, field) ?? "No data"}
                 </ul>
             </li>`;
         }
         var temp = fields;
         fields = "";
-        return temp;
+        return temp + `<button onclick='findDatasetByName("${DATASET.name}").setVal("293", window.prompt("Field name:"), "No data");'>Add Field</button>`;
     }
         for(var i = 0; i < DATASET.teams().length; i++){
             var team = DATASET.teams()[i];
@@ -91,13 +91,23 @@ function renderAddTree(DATASET){
             });
         }
 }
+
+//toggle view
 function switchView(){
     $("#add").toggle();
     $("#view").toggle();
 }
 
+//add a robot to the dataset
 function addRobot(DATASET){
     var num = window.prompt("Team #:");
     DATASET.initTeam(num);
     renderAddTree(DATASET);
+}
+
+//add a field to the dataset
+function addField(setName){
+    var FIELD = window.prompt("Field name:");
+    findDatasetByName(setName).setVal("293", FIELD.toString(), "No data");
+    renderAddTree(findDatasetByName(setName));
 }
