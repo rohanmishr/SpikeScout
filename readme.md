@@ -3,6 +3,7 @@
 ### Features:
 - Add data collected from other teams
 - View and analyze data easily
+- Evaluate teams easily
 ### Credits:
 - @rohanmishr
 - @IncbomDev
