@@ -1,0 +1,101 @@
+.dataset{
+    width: 10vw;
+    height: 10vw;
+    border-radius: 1vw;
+    background-color: #afafaf;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: ease-out 0.5s;
+    overflow: hidden;
+    text-align: center;
+}
+.dataset:hover{
+    filter: brightness(1.25);
+    cursor: pointer;
+}
+.dataset h3{
+    color: white;
+    font-weight: 750;
+}
+#datgui{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    z-index: 999;
+    background-color: gray;
+    transition: 0.1s;
+}
+#add{
+    display: none;
+}
+table{
+    border: 1px black solid;
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+}
+tr{
+    border: 1px black solid;
+    margin: 0;
+    padding: 0;
+}
+th{
+    border: 1px black solid;
+    margin: 0;
+    padding: 0;
+    transition: 0.1s;
+}
+td{
+    border: 1px black solid;
+    margin: 0;
+    padding: 1% 1% 1% 1%;
+    transition: 0.1s;
+}
+td:hover{
+    background-color: #afafaf;
+}
+th:hover{
+    background-color: #afafaf;
+}
+/* Remove default bullets */
+ul, #myUL {
+    list-style-type: none;
+  }
+  
+  /* Remove margins and padding from the parent ul */
+  #myUL {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Style the caret/arrow */
+  .caret {
+    cursor: pointer;
+    user-select: none; /* Prevent text selection */
+  }
+  
+  /* Create the caret/arrow with a unicode, and style it */
+  .caret::before {
+    content: "\25B6";
+    color: black;
+    display: inline-block;
+    margin-right: 6px;
+  }
+  
+  /* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+  .caret-down::before {
+    transform: rotate(90deg);
+    transition: 0.1s;
+  }
+  
+  /* Hide the nested list */
+  .nested {
+    display: none;
+  }
+  
+  /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+  .active {
+    display: block;
+  }

@@ -1,47 +1,50 @@
-<!DOCTYPE html>
 <html>
 <head>
-  <title>My List</title>
+  <title>SpikeScout</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
   <script src="js/inputHandler.js"></script>
   <script src="js/data.js"></script>
   <script src="js/front/newset.js"></script>
-  <script src="js/utils/lookup.js"></script>
   <script src="js/database.js"></script>
+  <script src="js/front/SelectDataset.js"></script>
+
+  <script src="js/utils/lookup.js"></script>
+  <script src="js/utils/booleanToInt.js"></script>
 
   <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/datasets.css">
 </head>
+ <!-- guis -->
+<div id="datgui">
+  <button onclick="$('#datgui').toggle()">Exit</button>
+  <h1 id="datgui-title">@DATASET_NAME</h1>
+  <button onclick="switchView()">View Dataset</button>
+  <button onclick="switchView()">Add Data</button>
+  <div id="view">
+    <h1>View data</h1>
+    <div id="view-table">
+
+    </div>
+  </div>
+  <div id="add">
+    <h1>Add data</h1>
+    <div id="add-inner">
+      
+    </div>
+  </div>
+</div>
+
 <body>
-  <h1>SpikeScout</h1>
+  <header>
+    <h1 id="page-title">SpikeScout</h1>
+  </header>
+  
   <div id="datasets">
     <h2>Datasets</h2>
-    <div class="dataset" onclick="createNewDataset()">Create a new dataset</div>
-  </div>
-  <hr>
-    <div id="teamDataInput">
-        <input type="number" id="teamName" placeholder="Team number">
-        <input type="text" id="dimensions" placeholder="Dimensions">
-        <input type="text" id="driveType" placeholder="Drive type">
-        <input type="text" id="speed" placeholder="Speed">
-        <input type="text" id="wheelDiameter" placeholder="Wheel diameter">
-        <input type="text" id="tiers" placeholder="Tiers">
-        <input type="text" id="pieces" placeholder="Pieces">
-        <input type="text" id="preferredPiece" placeholder="Preferred piece">
-        <input type="text" id="howScoreCone">
-        <input type="text" id="howScoreCube">
-        <input type="text" id="preferredScoring">
-        <input type="text" id="coneIntake">
-        <input type="text" id="cubeIntake">
-        <input type="text" id="whereCollectCargo">
-        <input type="text" id="preferredLocation">
-        <input type="text" id="orientation">
-        <input type="text" id="dockAndEngage">
-        <input type="text" id="multipleAttepmts">
-        <input type="text" id="canAutobalance">
-        <input type="text" id="cycleTime">
-        <input type="text" id="preloadCargoType">
-        <input type="text" id="autoTiers"> 
+    <div class="dataset" onclick="createNewDataset()">
+      <h3>New set</h3>
     </div>
-  <button onclick="addTeam()">Add</button>
+  </div>
   <ul id="teamData"></ul>
 </body>
 </html>

@@ -1,14 +1,60 @@
-.dataset{
-    width: 10vw;
-    height: 10vw;
-    border-radius: 1vw;
-    background-color: #afafaf;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: ease-out 0.5s;
+:root{
+    --bg-color: rgb(20, 20, 20);
+    --text-color: white;
+    --header-border-color: white;
 }
-.dataset:hover{
-    filter: brightness(1.25);
-    cursor: pointer;
+
+@import url('https://fonts.cdnfonts.com/css/proxima-nova-2');
+
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+
+@keyframes fadeIn{
+    0%{
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes golden{
+    0%{
+        color: #fff2ac;
+    }
+    50%{
+        color: #FFD700;
+        text-shadow: 0 0 4px #FFD700;
+    }
+    100%{
+        color: #fff2ac;
+    }
+}
+
+html{
+    padding-top: 0;
+    margin-top: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "BlinkMacSystemFont", "San Francisco", sans-serif;
+}
+body{
+    animation: fadeIn 1s ease;
+    margin: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+header{
+    border-bottom: 1px var(--header-border-color) solid;
+    padding: 1vh 1vw 1vh 1vw;
+}
+button{
+    display: inline;
+}
+#page-title{
+    animation: golden 5s infinite;
 }
