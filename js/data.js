@@ -13,7 +13,11 @@ class Data{
     }
 
     setVal(team, field, value){
-        this.data.get(team).set(field, value);
+        if (this.data.has(team)) {
+            this.data.get(team).set(field, value);
+        } else {
+            throw new Error("Error parsing data: team not found"); // TODO: Fix this error
+        }
     }
 
     getVal(team, field){
@@ -111,7 +115,7 @@ class Data{
         console.log(self.presetFields);
         });
     }
-    
+
     applyPresetData() {
         var button = document.getElementById("applyPresetDataButton");
         var self = this;
@@ -138,9 +142,9 @@ class Data{
                 }
             console.log(self.presetFields);
             } else {
-                for (var i = 0; i < self.presetFields.length; i++) {
-                    self.addField(self.presetFields[i].name);
-                    console.log(self.presetFields[i].name);
+                for (var i = 0; i <= self.presetFields.length; i++) {
+                    self.addField(self.presetFields[i]);
+                    console.log(self.presetFields[i]);
                 }
             }
         });
