@@ -57,6 +57,24 @@ header{
 button{
     display: inline;
 }
+button:hover{
+    cursor: pointer;
+}
 #page-title{
     animation: golden 5s infinite;
+}
+#center-items{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+}
+#input-box{
+    position: absolute;
+    display: none;
+    background-color: rgb(35, 35, 35);
+    z-index: 999;
 }

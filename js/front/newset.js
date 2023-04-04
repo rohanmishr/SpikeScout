@@ -10,12 +10,3 @@ function createNewDataset(){
     </div>
     `
 }
-
-window.onload = () => {
-document.getElementById("datasets").innerHTML += 
-    `
-    <div class="dataset" onclick="selectDataset('Test Set')"id="dataset-testset}">
-        <h3>Test Set</h3>
-    </div>
-    `;
-}

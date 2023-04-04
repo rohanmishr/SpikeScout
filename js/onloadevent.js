@@ -7,7 +7,7 @@ import ws from './database.js';
 // }, 100)
 
 // Function to update HTML with data received from server
-function updateHTML(teamData) {
+/*function updateHTML(teamData) {
   const teamNumber = teamData.teamNumber.toString();
   const teamName = teamData.teamName.toString();
   const canAutoBalance = teamData.canAutoBalance.toString();
@@ -26,4 +26,4 @@ ws.addEventListener('message', function(event) {
 // Call the updateHTML function when the page is loaded
 document.addEventListener('DOMContentLoaded', () => {
   updateHTML();
-});
+});*/

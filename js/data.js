@@ -38,7 +38,7 @@ class Data{
     addRobot(){
         var num = "";
         while (num.length > 4 || isNaN(num) || num.length < 1) {
-            num = prompt("Enter team number");
+            num = window.prompt("Enter team number");
             if (isNaN(num) || num.length > 4 || num.length < 1) {
                 alert("Invalid team number");
             }   

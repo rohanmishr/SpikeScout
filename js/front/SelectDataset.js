@@ -73,14 +73,14 @@ function renderTree(DATASET, init = true) {
                     ${DATASET.getVal(team, field) ?? "No data"}
                     <button onclick='
                         findDatasetByName("${DATASET.name}").setVal("${team}", "${field}", window.prompt("New value:")),
-                        renderTree(findDatasetByName("${DATASET.name}", false)'
+                        renderTree(findDatasetByName("${DATASET.name}", false))'
                     >Edit</button>
                 </ul>
             </li>`;
 		}
 		var temp = fields;
 		fields = "";
-		return temp + `<button onclick='findDatasetByName("${DATASET.name}").addField(window.prompt("Field name:"))'>Add Field</button>`;
+		return temp + `<button onclick='findDatasetByName("${DATASET.name}").addField(Notifications.input("Field name:"))'>Add Field</button>`;
 	}
 	for (var i = 0; i < DATASET.teams().length; i++) {
 		var team = DATASET.teams()[i];
@@ -122,10 +122,17 @@ function renderTree(DATASET, init = true) {
 
 function SwitchButtons(dataset) {
 	var html = `
+	<button class="view-btn" onclick='switchView("view", "${dataset.name}")'>View</button>
     <button class="view-btn" onclick='switchView("add", "${dataset.name}")'>Add</button>
-    <button class="view-btn" onclick='switchView("view", "${dataset.name}")'>View</button>
+	<button class="view-btn" onclick='switchView("export", "${dataset.name}")'>Export</button>
     `;
 	$("#view-buttons")[0].innerHTML = html;
+
+	var html2 = `
+	<button onclick="exportAsCSV(findDatasetByName('${dataset.name}'))">Export as CSV</button>
+    <button onclick="exportAsJSON(findDatasetByName('${dataset.name}'))">Export as JSON</button>
+	`
+	$("#export-inner")[0].innerHTML = html2;
 }
 
 //toggle view
@@ -134,14 +141,28 @@ function switchView(view, set) {
 		case "add":
 			$("#add").show();
 			$("#view").hide();
+			$("#export").hide();
 			break;
 		case "view":
 			$("#add").hide();
 			$("#view").show();
+			$("#export").hide();
             renderTable(findDatasetByName(set.toString()));
+			break;
+		case "export":
+			$("#add").hide();
+			$("#view").hide();
+			$("#export").show();
 			break;
 	}
 }
+
+document.getElementById("datasets").innerHTML += 
+    `
+        <div class="dataset" onclick="selectDataset('Test Set')"id="dataset-testset}">
+            <h3>Test Set</h3>
+        </div>
+    `;
 
 //save edits
 function saveEdits() {
