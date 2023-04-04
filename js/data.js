@@ -3,6 +3,8 @@ class Data{
     constructor(name){
         this.name = name;
         this.data = new Map();
+        this.UNWANTED_FIELDS = [];
+        this.score = new Map();
     }
 
     initTeam(num){
@@ -27,16 +29,29 @@ class Data{
         }
         return r;
     }
+
+    addRobot(){
+        var num = "";
+        while (num.length > 4 || isNaN(num) || num.length < 1) {
+            num = prompt("Enter team number");
+            if (isNaN(num) || num.length > 4 || num.length < 1) {
+                alert("Invalid team number");
+            }   
+        }
+        this.initTeam(num);
+        renderTree(this);
+    }
     
     fields(){
-        var keys;
-        try{
-            keys = this.data.get(this.teams()[0]).keys();
-        }catch(e){
-            return;
-        }
+        var keys = this.data.keys();
         var next = keys.next();
         var r = [];
+
+        try{
+            keys = this.data.get(this.teams()[0]).keys();
+        }catch(e){return;}
+
+        next = keys.next();
         while (!next.done){
             r.push(next.value);
             next = keys.next();
@@ -44,21 +59,52 @@ class Data{
         return r;
     }
 
+    addField(field){  
+        this.setVal(this.teams()[0], field.toString(), "No data");
+        renderTree(this);
+    }
+
     teamScore(team) {
-        var score = [];
         var fields = this.fields();
-        for (var i=0; i<=fields.length; i++){
-            if (fields[i].tag === "calculate"){
-                score += fields[i].value;
+        for (var i = 0; i <= fields.length; i++) {
+            //parse out unwanted fields
+            for(var j = 0; i < this.UNWANTED_FIELDS.length; j++) {
+                if(fields[i] == this.UNWANTED_FIELDS[j]) {
+                    fields.splice(i, 1);
+                }
+            } 
+            //do calculations
+            var totalScore;
+            while (i <= fields.length) {
+                totalScore += fields[i];
             }
+            this.score.get(team).set("Total Score", totalScore);
         }
-        return score;
+    }
+
+    createField() {
+        var button = document.getElementById("createField");
+        button.addEventListener("click", function() {
+            console.log("button clicked");
+            var presetFields = [];
+            newField = prompt("Enter a field name");
+            if (newField == null || newField == "") {
+                alert("Invalid field name");
+            } else {
+                newFieldType = prompt("Enter a field type (number, text, true/false)");
+                if (newFieldType == null || newFieldType == "") {
+                    alert("Invalid field type");
+                } else if (newFieldType.toLowerCase() == "number") {
+                    presetFields.push({name: newField, type: "number"});
+                } else if (newFieldType.toLowerCase() == "text") {
+                    presetFields.push({name: newField, type: "text"});
+                } else if (newFieldType.toLowerCase() == "true/false" || newFieldType.toLowerCase() == "true / false") {
+                    presetFields.push({name: newField, type: "checkbox"});
+                }
+            }
+        });
     }
 }
-
-var teamScoreTest = teamScore("293");
-console.log(teamScoreTest);
-
 
 var Datasets = [];
 var TestSet = new Data("Test Set");
@@ -78,4 +124,3 @@ TestSet.setVal("293", "Team Name", "SPIKE");
 TestSet.initTeam("2495");
 TestSet.setVal("2495", "Team Name", "Hive Mind");
 TestSet.initTeam("254");
-
