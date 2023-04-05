@@ -1,0 +1,7 @@
+#list-container{}
+.lists{
+    border: 1px solid black;
+    width: 30vw;
+    height: 85vh;
+    display: inline-block;
+}

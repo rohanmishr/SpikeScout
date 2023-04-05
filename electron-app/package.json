@@ -1,0 +1,19 @@
+{
+  "name": "electron-app",
+  "version": "1.0.0",
+  "description": "293 SPIKE Scouting Application",
+  "main": "main.js",
+  "dependencies": {
+    "mongodb": "^5.1.0",
+    "ws": "^8.13.0"
+  },
+  "scripts": {
+    "test": "echo 293",
+    "start": "electron ."
+  },
+  "author": "293 SPIKE",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^24.0.0"
+  }
+}

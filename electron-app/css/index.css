@@ -1,0 +1,115 @@
+:root{
+    --bg-color: rgb(20, 20, 20);
+    --gui-bg-color: rgb(50, 50, 50);
+    --text-color: white;
+    --header-border-color: white;
+}
+
+@import url('https://fonts.cdnfonts.com/css/proxima-nova-2');
+
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+
+@keyframes fadeIn{
+    0%{
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes golden{
+    0%{
+        color: #fff2ac;
+    }
+    50%{
+        color: #FFD700;
+        text-shadow: 0 0 4px #FFD700;
+    }
+    100%{
+        color: #fff2ac;
+    }
+}
+
+html{
+    padding-top: 0;
+    margin-top: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "BlinkMacSystemFont", "San Francisco", sans-serif;
+}
+body{
+    animation: fadeIn 1s ease;
+    margin: 0;
+}
+#main{
+    margin-left: 1vw;
+}
+header{
+    border-bottom: 1px var(--header-border-color) solid;
+    padding: 1vh 1vw 1vh 1vw;
+}
+button{
+    display: inline;
+}
+button:hover{
+    cursor: pointer;
+}
+header{
+    display: flex;
+    align-items: center;
+}
+#page-icon{
+    display: inline;
+    width: 5vw;
+    height: 5vw;
+}
+#page-title{
+    animation: golden 5s infinite;
+    display: inline;
+    margin-left: 1vw;
+}
+
+#input-box{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: rgb(35, 35, 35);
+    z-index: 999;
+    width: 30vw;
+    height: 30vh;
+    border-radius: 1vw;
+    padding: 1vw;
+    position: absolute;
+    top: 35%;
+    left: 35%;
+    transition: 0.2s;
+}
+#input-box:hover{
+    filter: brightness(1.1);
+}
+#input-box-question{
+    font-size: 1vw;
+    width: 100%;
+    z-index: 9999;
+    text-align: center;
+}
+#input-box-input{
+    z-index: 9999;
+    height: 2vw;
+    width: 50%;
+    border-radius: 0.5vw;
+    border: gray;
+    background-color: var(--bg-color);
+    color: white;
+    user-select: text;
+}
+#input-box-input:hover{
+    cursor: text;
+}

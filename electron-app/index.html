@@ -1,0 +1,89 @@
+<html>
+<head>
+  <title>SpikeScout</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/datasets.css">
+  <link rel="stylesheet" href="css/analyze.css">
+</head>
+ <!-- guis -->
+<div id="datgui">
+  <div id="datgui-header">
+    <button id="exit" onclick="$('#datgui').toggle()"><img src="assets/exit.png"></button>
+    <h1 id="datgui-title">@DATASET_NAME</h1>
+    <div id="view-buttons">
+      <!-- view buttons are added here-->
+    </div>
+  </div>
+  <hr>
+  <div id="view">
+    <h3>View data</h3>
+    <div id="view-table">
+
+    </div>
+  </div>
+  <div id="add">
+    <h3>Add data</h3>
+    <div id="add-inner">
+    </div>
+  </div>
+  <div id="export">
+    <h3>Export data</h3>
+    <div id="export-inner">
+      
+    </div>
+  </div>
+  <div id="analyzer">
+    <h3>Analyze data</h3>
+    <div id="list-container">
+      <div class="lists" id="analyze-manual">
+        
+      </div>
+      <div class="lists" id="analyze-suggested">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="input-box">
+  <h3 id="input-box-question">@QUESTION</h3><br>
+  <input type="text" id="input-box-input" placeholder="...">
+  <button onclick="Notifications.submittedData = $('#input-box-input').val();">Submit</button>
+</div>
+
+
+<body>
+  <div id="main">
+    <header>
+      <img id="page-icon" src="assets/spike.png">
+      <h1 id="page-title">SpikeScout</h1>
+    </header>
+    <div id="presetData">
+      <h2>Preset data</h2>
+      <button id="createField">Create new field</button>
+      <button id="applyPresetDataButton">Apply preset data</button>
+      </div>
+    <div id="datasets">
+      <h2>Datasets</h2>
+      <div class="dataset" onclick="createNewDataset()">
+        <h3>New set</h3>
+      </div>
+    </div>
+    <ul id="teamData"></ul>
+  </div>
+</body>
+  <script type="module" src="js/database.js"></script>
+  <!-- <script src="https://unpkg.com/mongodb@4.0.0-beta10"></script> !-->
+
+  <script src="./js/front/SelectDataset.js"></script>
+  <script src="./js/front/Notifications.js"></script>
+  <script src="./js/data.js"></script>
+  <script src="./js/export.js"></script>
+
+  <script src="./js/utils/lookup.js"></script>
+  <script src="./js/utils/booleanToInt.js"></script>
+  <script type="module" src="./js/onloadevent.js"></script>
+  <script src="./js/front/newset.js"></script>
+</html>
