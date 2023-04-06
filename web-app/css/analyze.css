@@ -1,7 +1,62 @@
-#list-container{}
+#list-container{
+    text-align: center;
+}
 .lists{
     border: 1px solid black;
     width: 30vw;
-    height: 85vh;
+    height: 84vh;
     display: inline-block;
+    overflow-y: scroll;
+    padding-left: 1vw;
+    padding-top: 1vw;
+    border: 4px solid white;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.lists::-webkit-scrollbar {
+    display: none;
+    width: 0;
+}
+#analyze-manual{
+    float: left;
+}
+#lists-middle{
+    float: left;
+    display: inline;
+    width: 33vw;
+    height: 83vh;
+    padding-left: 1vw;
+    padding-top: 1vw;
+    border: 10px solid rgb(255, 255, 137);
+    animation: golden-border 3s infinite;
+}
+#analyze-suggested{
+    float: left;
+}
+
+.analyzer-team{
+    border: 1px solid black;
+    width: 29vw;
+    height: 8vh;
+    display: flex;
+    font-size: 3vw;
+    align-items: center;
+    cursor: grab;
+    z-index: 1;
+    position: relative;
+    user-select: none;
+    transition: transform 0.2s ease-in-out;
+}
+.analyzer-team.dragging {
+    opacity: 0.5;
+    transform: scale(1.1);
+}
+.analyzer-team:active{
+    cursor: grabbing;
+}
+.analyzer-team p{
+    margin-left: 1vw;
+}
+.analyzer-team:hover{
+    background-color: #808080;
 }

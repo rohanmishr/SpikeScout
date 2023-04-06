@@ -75,12 +75,14 @@ class Data{
                 }
             } 
             //do calculations
-            var totalScore = 0;
-            while (i < fields.length) {
-                totalScore += this.getVal(team, fields[i]);
-                i++;
+            var values = new Map();
+            for(var j = 0; j < fields.length; j++) {
+                //checkfor drivetrain value
+                var value = this.getVal(team, fields[j]);
+                if(value.includes("swerve" || "Swerve")) {
+                    values.set("drivetrain", "swerve");
+                }
             }
-            this.score.get(team).set("Total Score", totalScore);
         }
     }
 
