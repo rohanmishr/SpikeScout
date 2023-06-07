@@ -86,7 +86,7 @@ class Data{
         }
     }
 
-
+    
     createField() {
         var button = document.getElementById("createField");
         var self = this;
@@ -113,6 +113,7 @@ class Data{
         console.log(self.presetFields);
         });
     }
+    
 
     applyPresetData() {
         var button = document.getElementById("applyPresetDataButton");
@@ -146,7 +147,15 @@ class Data{
                 }
             }
         });
-    }    
+    }
+    
+    renderPresetData() {
+        var button = document.getElementById("showPresetData");
+        button.addEventListener("click", function() {
+            window.alert("hi");
+            document.getElementById("presetDataList").innerHTML = "<li>" + "hi" + "</li>";
+        });
+    }
 }    
 
 window.onload = function(){
