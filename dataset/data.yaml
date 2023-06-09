@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 3
+names: ['cone', 'cube', 'robot']
+
+roboflow:
+  workspace: joshua-nemecek-o4eys
+  project: frc-robos
+  version: 1
+  license: BY-NC-SA 4.0
+  url: https://universe.roboflow.com/joshua-nemecek-o4eys/frc-robos/dataset/1
