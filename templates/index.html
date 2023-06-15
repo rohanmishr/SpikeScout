@@ -1,10 +1,37 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Object Detection</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Object Detection with YOLO</h1>-->
+<!--<img id="video_feed" src="{{ url_for('video_feed') }}" width="640" height="480" />-->
+<!--</body>-->
+<!--</html>-->
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Object Detection</title>
+    <style>
+        #video_feed {
+            width: 640px;
+            height: 480px;
+        }
+    </style>
+    <script>
+        function loadVideo() {
+            var video = document.getElementById('video_feed');
+            var source = new EventSource("/video_feed");
+            source.addEventListener('message', function (event) {
+                video.src = 'data:image/jpeg;base64,' + event.data;
+            });
+        }
+        window.onload = loadVideo;
+    </script>
 </head>
 <body>
 <h1>Object Detection with YOLO</h1>
-<img id="video_feed" src="{{ url_for('index') }}" width="640" height="480" />
+<img id="video_feed" src="" />
 </body>
 </html>

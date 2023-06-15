@@ -27,8 +27,8 @@ def gen():
             labels = []
         else:
             # Extract the bounding boxes and labels from the results
-            boxes = results[0].xyxy.tolist()
-            labels = results[0].names.tolist()
+            boxes = results[0].boxes.xyxy.tolist()
+            labels = list(results[0].names.values())
 
         # Draw the bounding boxes and labels on the frame
         for box, label in zip(boxes, labels):
@@ -46,10 +46,9 @@ def gen():
 
     cap.release()
 
-app.route('/video_feed')
+@app.route('/video_feed')
 def video_feed():
-    return Response(gen(),
-                    mimetype='multipart/x-mixed-replace; boundary=frame')
+    return Response(gen(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__ == '__main__':
     app.run(debug=True)
