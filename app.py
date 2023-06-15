@@ -6,12 +6,40 @@ app = Flask(__name__)
 
 model = YOLO("yolov8n.pt")
 
+def find_main_camera_index():
+    # Iterate through video devices until the main camera is found
+    for i in range(10):  # You can adjust the range according to the number of video devices on your system
+        cap = cv2.VideoCapture(i)
+        if cap.isOpened():
+            # Check if the camera supports the required properties (width and height)
+            width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+            height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+            if width > 0 and height > 0:
+                # Check if the camera captures frames without errors
+                ret, frame = cap.read()
+                if ret:
+                    # Main camera found
+                    cap.release()
+                    print("Main camera found at index: " + str(i))
+                    return i
+                else:
+                    print(f"Camera at index {i} does not capture frames properly.")
+            else:
+                print(f"Camera at index {i} does not support required properties.")
+        else:
+            print(f"Camera at index {i} could not be opened.")
+
+    # Main camera not found
+    return -1
+
+main_camera_index = find_main_camera_index()
+
 @app.route('/')
 def index():
     return render_template('index.html')
 
 def gen():
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(main_camera_index)
 
     while True:
         ret, frame = cap.read()
