@@ -54,7 +54,7 @@ export default function Home() {
               height={100}
               alt={'Spike Logo'}
             />
-            <h1>SpikeScout</h1>
+            <h1 id={styles.header}>SpikeScout</h1>
             <div id={styles.login_inner}>
             <input
             type="text"
