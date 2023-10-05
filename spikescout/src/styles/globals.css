@@ -10,6 +10,7 @@
 
   --border-col-primary: rgba(255, 255, 255, 0.1);
   --box-col-primary: rgba(255, 255, 255, 0.02);
+  --login-focus-col: rgb(100, 100, 100);
 
   --border-col-secondary: rgba(255, 255, 255, 0.15);
   --box-col-secondary: rgba(255, 255, 255, 0.05);

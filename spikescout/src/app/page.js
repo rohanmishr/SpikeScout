@@ -48,6 +48,7 @@ export default function Home() {
             />
             <h1>SpikeScout</h1>
             <div id={styles.login_inner}>
+            <p id={styles.label_tag}>Name</p>
             <input
             type="text"
             class={styles.login_input}
@@ -72,21 +73,21 @@ export default function Home() {
             <button id={styles.login_button} type="button" onClick={() => login(email, password)}>
             Login
             </button>
-
             <button id={styles.login_button} type="button" onClick={register}>
             Register
             </button>
           </div>
         </div>
+          <div id={styles.block_right}>
+            {/* <div class={styles_slogan}>
+
+            </div> */}
+
+          </div>
       </div>
     </main>
   )
 }
-
-// export { register }
-
-
-// const LoginPage = () => {
   
 
 //   return (

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Client, Account } from 'appwrite';
+import { redirect } from 'next/navigation';
 
 const client = new Client();
 client
@@ -19,26 +20,17 @@ export default function RegisterTeam() {
 
         if (response.status === 401) {
           // Set the content for unauthorized users
-          setContent(
-            <div>
-              <h1>Unauthorized Access</h1>
-              <p>You are not authorized to view this page.</p>
-            </div>
-          );
+          redirect('/login');
         } else {
           // Set the content for authorized users or handle other response cases
           // ...
         }
-      } catch (AppwriteException error) {
+      } catch (error) {
         // Handle promise rejection (e.g., network error)
         console.error(error);
         // Set the content for the error case
-        setContent(
-          <div>
-            <h1>Error</h1>
-            <p>An error occurred while processing your request.</p>
-          </div>
-        );
+        // redirect user to login page
+        redirect('/login');
       }
     };
 
