@@ -1,12 +1,20 @@
-import styles from '../../styles/page.module.css'
+import styles from '../../styles/dashboard.module.css'
+import React from 'react'
 
 function DashboardSidebar() {
-    let selected = "datasets";
+    const [tab, switchTab] = React.useState("datasets");
+    function tabSwitchHandler(t) {
+        return () => {
+            switchTab(t);
+        }
+    }
+
     return (
         <div id={styles.dashboard_sidebar}>
-            <button onclick={selected = "datasets"} class={styles.dashboard_sidebar_button}>Datasets</button>
-            <button onclick={selected = "options"} class={styles.dashboard_sidebar_button}>Options</button>
-            <button onclick={selected = "analytics"} class={styles.dashboard_sidebar_button}>Analytics</button>
+            <button onClick={tabSwitchHandler("datasets")} class={styles.dashboard_sidebar_button} id={styles.datasets_button}>Datasets</button>
+            <button onClick={tabSwitchHandler("options")} class={styles.dashboard_sidebar_button} id={styles.options_button}>Options</button>
+            <button onClick={tabSwitchHandler("analytics")} class={styles.dashboard_sidebar_button} id={styles.analytics_button}>Analytics</button>
+            <h4>{tab}</h4>
         </div>
     )
 }

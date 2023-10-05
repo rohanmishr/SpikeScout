@@ -1,5 +1,5 @@
 import '../src/styles/globals.css'
-import styles from '../src/styles/page.module.css'
+import styles from '../src/styles/dashboard.module.css'
 import { Inter } from 'next/font/google'
 
 // components
@@ -14,8 +14,10 @@ export default function Dashboard() {
         <main className={inter.className}>
             <div id={styles.dashboard}>
                 <DashboardHeader />
-                <DashboardSidebar />
-                <DashboardPanel />
+                <div id={styles.dashboard_content}>
+                    <DashboardSidebar />
+                    <DashboardPanel />
+                </div>
             </div>
         </main>
     )
