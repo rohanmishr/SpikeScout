@@ -45,49 +45,49 @@ export default function Home() {
   return (
     <main>
       <div id={styles.container}>
-        <div id={styles.login}>
-            <Image
-              src={'/spike.png'}
-              width={100}
-              height={100}
-              alt={'Spike Logo'}
-            />
-            <h1 id={styles.header}>SpikeScout</h1>
-            <div id={styles.login_inner}>
-            <input
-            type="text"
-            class={styles.login_input}
-            placeholder="Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            />
-            <input
-            type="email"
-            class={styles.login_input}
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-            type="password"
-            class={styles.login_input}
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            />
-            <button id={styles.login_button} type="button" onClick={() => login(email, password)}>
-            Login
-            </button>
-            <button id={styles.login_button} type="button" onClick={register}>
-            Register
-            </button>
-          </div>
-        </div>
-          <div id={styles.block_right}>
-            <div class={styles.slogan}>
-              <h2>Precision starts with data.</h2>
+        <div id={styles.block_right}>
+          <div id={styles.spacer}></div>
+          <br>
+          </br>
+          <div id={styles.login}>
+              <Image
+                src={'/spike.png'}
+                width={100}
+                height={100}
+                alt={'Spike Logo'}
+              />
+              <h1 id={styles.header}>SpikeScout</h1>
+              <div id={styles.login_inner}>
+              <input
+              type="text"
+              class={styles.login_input}
+              placeholder="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              />
+              <input
+              type="email"
+              class={styles.login_input}
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              />
+              <input
+              type="password"
+              class={styles.login_input}
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              />
+              <button id={styles.login_button} type="button" onClick={() => login(email, password)}>
+              Login
+              </button>
+              <button id={styles.login_button} type="button" onClick={register}>
+              Register
+              </button>
             </div>
           </div>
+        </div>
       </div>
     </main>
   )

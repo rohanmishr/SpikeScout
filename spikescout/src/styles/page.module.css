@@ -10,18 +10,23 @@
 }
 
 #login {
+  padding-top: 2.5vh;
   display: flex;
+  position: absolute;
+  left: 3vw;
+  border-radius: 3vw;
   float: right;
   flex-direction: column;
   border: 1px solid var(--border-col-primary);
   /* border-radius: 1.7vw; */
   /* background-color: var(--box-col-primary); */
-  background-color: white;
-  width: 50vw;
-  padding-top: 10vh;
+  background-color: rgb(255, 255, 255, 0.9);
+  width: 40vw;
+  margin-top: 10vh;
   /* padding-top: 1vh; */
-  height: 100vh;
+  height: 80vh;
   align-items: center;
+  box-shadow: 0 0 3vw 0 rgba(0, 0, 0, 0.7);
 }
 
 #block_right {
@@ -29,7 +34,7 @@
   display: flex;
   flex-direction: column;
   background-image: url("https://www.creativefabrica.com/wp-content/uploads/2023/05/11/Modern-colourful-abstract-background-Graphics-69439498-1.jpg");
-  width: 50vw;
+  width: 100vw;
   height: 100vh;
   align-items: center;
 }
@@ -55,11 +60,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--border-col-secondary);
+  /* border: 1px solid var(--border-col-secondary); */
   border-radius: 1.7vw;
-  background-color: var(--box-col-secondary);
+  /* background-color: var(--box-col-secondary); */
   width: 40vw;
   height: 50vh;
+}
+
+#spacer {
+  height: 5vh;
 }
 
 .login_input {
@@ -67,7 +76,7 @@
   width: 30vw;
   height: 4vh;
   margin-top: 0.5vh;
-  border-radius: 0.45vh;
+  border-radius: 5vw;
   margin-bottom: 1vh;
   border: 1px solid gray;
   padding-left: 0.5vw;
@@ -77,7 +86,7 @@
 #github_login_button {
   width: 30vw;
   height: 4vh;
-  border-radius: 0.35vh;
+  border-radius: 5vw;
   border: 0.1px solid gray;
   background-color: #e72660;
   color: white;
