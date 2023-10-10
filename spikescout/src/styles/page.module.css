@@ -1,5 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
 
+.login_input {
+  display: block;
+  width: 30vw;
+  height: 4vh;
+  margin-top: 0.5vh;
+  margin-bottom: 1vh;
+  background-color: rgba(0, 0, 0, 0);  
+  border: none;
+  border-bottom: 0.25px solid grey;
+  padding-left: 0.5vw;
+  color: black;
+  transition: border-bottom 0.3s ease-in-out;
+}
+
+.login_input:focus {
+  outline: none;
+  border-bottom: 0.25px solid #e72660;
+}
+
 #container {
   display: flex;
   justify-content: right;
@@ -76,10 +95,18 @@
   width: 30vw;
   height: 4vh;
   margin-top: 0.5vh;
-  border-radius: 5vw;
   margin-bottom: 1vh;
-  border: 1px solid gray;
+  background-color: rgba(0, 0, 0, 0);  
+  border: none;
+  border-bottom: 0.2px solid lightgray;
   padding-left: 0.5vw;
+  color: black;
+  transition: border-bottom 0.3s ease-in-out;
+}
+
+.login_input:focus {
+  outline: none;
+  border-bottom: 0.5px solid #e72660;
 }
 
 #login_button,
@@ -87,10 +114,11 @@
   width: 30vw;
   height: 4vh;
   border-radius: 5vw;
-  border: 0.1px solid gray;
+  border: none;
   background-color: #e72660;
   color: white;
   font-weight: bold;
+  transition: filter 0.3s ease-in-out;
 }
 
 #header {
@@ -99,6 +127,14 @@
 
 #login_button {
   margin-top: 3vh;
+}
+
+#divider {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  width: 30vw;
+  height: 0.1vh;
+  border: none;
 }
 
 #login_button:hover,

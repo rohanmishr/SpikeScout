@@ -79,6 +79,7 @@ export default function Home() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               />
+              <div id={styles.divider}></div>
               <button id={styles.login_button} type="button" onClick={() => login(email, password)}>
               Login
               </button>
