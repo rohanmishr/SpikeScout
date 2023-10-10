@@ -11,7 +11,7 @@
     border-bottom: var(--border-col-primary) 1px solid;
     display: flex;
     width: 100vw;
-    height: 8vh;
+    min-height: 8vh;
     padding-left: 1vw;
     align-items: center;
 }
@@ -74,6 +74,11 @@
   .app_sidebar_button:hover {
     background-color: rgba(255, 255, 255, 0.1);
     cursor: pointer;
+  }
+
+  #scout_button {
+    background-color: rgba(255, 196, 1, 0.75);
+    border: 1px solid rgb(255, 196, 1);
   }
   
   #app_panel {
@@ -175,34 +180,27 @@
     margin-left: 1vw;
   }
 
-  /* tasks */
-  #assigned_tasks {
-    width: 25vw;
-    height: 90vh;
-    background-color: rgb(15, 15, 15);
-    display: inline-flex;
-    flex-direction: column;
-    padding-left: 1vw;
-    padding-right: 1vw;
-  }
-
-  #all_tasks {
-    width: 25vw;
-    height: 90vh;
-    background-color: rgb(15, 15, 15);
-    display: inline-flex;
-    margin-left: 1vw;
-    flex-direction: column;
-    padding-left: 1vw;
-    padding-right: 1vw;
-  }
-
-  .task {
-    background-color: rgb(10, 10, 10);
-    border: 1px solid var(--border-col-primary);
-    border-radius: 0.5vw;
+  /* scout */
+ .dataset {
     display: flex;
     flex-direction: column;
-    padding-left: 0.5vw;
-    height: 10vh;
-  }
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(30, 30, 30);
+    border: 1px solid var(--border-col-primary);
+    width: 10vw;
+    height: 10vw;
+    border-radius: 1.5vw;
+    transition: 0.25s ease;
+ }
+
+ .dataset #add_dataset {
+    font-size: 7vw;
+    font-weight: 1;
+    color: gray;
+ }
+
+ .dataset:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.1);
+ }

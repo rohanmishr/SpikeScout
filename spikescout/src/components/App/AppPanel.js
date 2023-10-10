@@ -1,8 +1,8 @@
 import Team from '../../../pages/api/Team';
-import Task from '../../../pages/api/Task';
 import RegisterTeam from '../../../pages/register-team';
 import styles from '../../styles/app.module.css'
 import React from 'react'
+import Dataset from '../../../pages/api/Dataset';
 
 function AppPanel({ tab, team, user }) {
     if(team == undefined) {
@@ -110,41 +110,36 @@ function AppPanel({ tab, team, user }) {
         )
     }
 
-    // tasks
-    let userAssignedTasks = [];
-    let tasks = [];
+    // Scouting (the main things)
 
-    for(var i = 0; i < team.tasks.length; i++) {
-        if(team.tasks[i].assignees.includes(user.name)) {
-            userAssignedTasks.push(
-                <div class={styles.task}>
-                    <h4>{team.tasks[i].name}</h4>
-                    <p>{team.tasks[i].desc}</p>
-                </div>
-            )
-        } else {
-            tasks.push(
-                <div class={styles.task}>
-                    <h4>{team.tasks[i].name}</h4>
-                    <p>{team.tasks[i].desc}</p>
-                </div>
-            )
-        } // if the task isnt assigned to the user, put it in the all tasks category.
+    // 1. get the already present datasets from the team
+    let sets = [];
+    for(var i = 0; i < team.datasets.length; i++) {
+        sets.push(
+            <button class={styles.dataset}>
+                <h3>{team.datasets[i].name}</h3>
+            </button>
+        );
     }
-    if(tab == "tasks") {
+    
+    // handlers
+    function createDataset() {
+        return () => {
+            // create a new dataset
+            let newDataset = new Dataset(window.prompt("Dataset name:"));
+            team.datasets.push(newDataset);
+        }
+    }
+
+    if(tab == "scout") {
         return (
-            <div id={styles.tasks}>
-                <div id={styles.assigned_tasks}>
-                    <h3>Assigned Tasks</h3>
-                    <div id={styles.assigned_tasks_inner}>
-                        {userAssignedTasks}
-                    </div>
-                </div>
-                <div id={styles.all_tasks}>
-                    <h3>All Tasks</h3>
-                    <div id={styles.all_tasks_inner}>
-                        {tasks}
-                    </div>
+            <div id={styles.scout}>
+                <h3>Datasets</h3>
+                <div id={styles.datasets}>
+                    {sets}
+                    <button onClick={createDataset()} class={styles.dataset}>
+                        <h3 id={styles.add_dataset}>+</h3>
+                    </button>
                 </div>
             </div>
         )

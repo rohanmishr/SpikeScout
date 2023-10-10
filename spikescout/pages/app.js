@@ -4,7 +4,6 @@ import { Inter } from 'next/font/google'
 import React from 'react'
 import Image from 'next/image'
 import Team from '../pages/api/Team'
-import Task from '../pages/api/Task'
 import CalendarEvent from '../pages/api/CalendarEvent'
 import CalendarDate from '../pages/api/CalendarDate'
 import JoinTeam from '../pages/join-team'
@@ -16,7 +15,6 @@ const inter = Inter({ subsets: ['latin'] })
 const TestTeam = new Team(999, "TestTeam", "Las Vegas, Nevada");
 TestTeam.events.push(new CalendarEvent(new CalendarDate(10, 10, 2023), "Test Event", "An event description."));
 TestTeam.events.push(new CalendarEvent(new CalendarDate(10, 10, 2023), "Test Event 2", "An event description."));
-TestTeam.tasks.push(new Task("Cleanup RobotContainer.java", "Remove extra whitespace, fix indentation", "", ["Not logged in"]));
 
 export default function App({ user }) {
     /*if((user ?? {team:undefined}).team == undefined) {
@@ -57,9 +55,9 @@ export default function App({ user }) {
                 <div id={styles.app_content}>
                     <div id={styles.app_sidebar}>
                         <button onClick={tabSwitchHandler("dashboard")} class={styles.app_sidebar_button} id={styles.dashboard_button}>Dashboard</button>
-                        <button onClick={tabSwitchHandler("tasks")} class={styles.app_sidebar_button} id={styles.tasks_button}>Tasks</button>
                         <button onClick={tabSwitchHandler("calendar")} class={styles.app_sidebar_button} id={styles.calendar_button}>Calendar</button>
                         <button onClick={tabSwitchHandler("analytics")} class={styles.app_sidebar_button} id={styles.analytics_button}>Analytics</button>
+                        <button onClick={tabSwitchHandler("scout")} class={styles.app_sidebar_button} id={styles.scout_button}>Scout</button>
                         <button onClick={tabSwitchHandler("options")} class={styles.app_sidebar_button} id={styles.options_button}>Options</button>
                     </div>
                     <div id={styles.app_panel}>
