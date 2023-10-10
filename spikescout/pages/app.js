@@ -4,8 +4,10 @@ import { Inter } from 'next/font/google'
 import React from 'react'
 import Image from 'next/image'
 import Team from '../pages/api/Team'
+import Task from '../pages/api/Task'
 import CalendarEvent from '../pages/api/CalendarEvent'
 import CalendarDate from '../pages/api/CalendarDate'
+import JoinTeam from '../pages/join-team'
 
 // components
 import AppPanel from '../src/components/App/AppPanel'
@@ -14,8 +16,14 @@ const inter = Inter({ subsets: ['latin'] })
 const TestTeam = new Team(999, "TestTeam", "Las Vegas, Nevada");
 TestTeam.events.push(new CalendarEvent(new CalendarDate(10, 10, 2023), "Test Event", "An event description."));
 TestTeam.events.push(new CalendarEvent(new CalendarDate(10, 10, 2023), "Test Event 2", "An event description."));
+TestTeam.tasks.push(new Task("Cleanup RobotContainer.java", "Remove extra whitespace, fix indentation", "", ["Not logged in"]));
 
 export default function App({ user }) {
+    /*if((user ?? {team:undefined}).team == undefined) {
+        return (
+            <JoinTeam />
+        )
+    }*/
     const [tab, switchTab] = React.useState("dashboard");
 
     const Guest = {
@@ -56,7 +64,7 @@ export default function App({ user }) {
                     </div>
                     <div id={styles.app_panel}>
                         <h1>{tab[0].toUpperCase() + tab.slice(1, tab.length)}</h1>
-                        <AppPanel tab={tab} team={(user ?? Guest).team} />
+                        <AppPanel tab={tab} team={(user ?? Guest).team} user={(user ?? Guest)} />
                     </div>
                 </div>
             </div>

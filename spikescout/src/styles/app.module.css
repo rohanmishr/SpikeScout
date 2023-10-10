@@ -174,3 +174,35 @@
     height: 2vh;
     margin-left: 1vw;
   }
+
+  /* tasks */
+  #assigned_tasks {
+    width: 25vw;
+    height: 90vh;
+    background-color: rgb(15, 15, 15);
+    display: inline-flex;
+    flex-direction: column;
+    padding-left: 1vw;
+    padding-right: 1vw;
+  }
+
+  #all_tasks {
+    width: 25vw;
+    height: 90vh;
+    background-color: rgb(15, 15, 15);
+    display: inline-flex;
+    margin-left: 1vw;
+    flex-direction: column;
+    padding-left: 1vw;
+    padding-right: 1vw;
+  }
+
+  .task {
+    background-color: rgb(10, 10, 10);
+    border: 1px solid var(--border-col-primary);
+    border-radius: 0.5vw;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0.5vw;
+    height: 10vh;
+  }

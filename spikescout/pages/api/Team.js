@@ -13,6 +13,7 @@ class Team {
 
         this.subteams = [];
         this.events = [];
+        this.tasks = [];
     }
 }
 

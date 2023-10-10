@@ -1,9 +1,16 @@
+import Team from '../../../pages/api/Team';
+import Task from '../../../pages/api/Task';
+import RegisterTeam from '../../../pages/register-team';
 import styles from '../../styles/app.module.css'
 import React from 'react'
 
-function AppPanel({ tab, team }) {
+function AppPanel({ tab, team, user }) {
     if(team == undefined) {
-        // send user to Join a team page
+        return (
+            <div>
+                <h1>No team found. (AppPanel:11)</h1>
+            </div>
+        )
     }
 
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -98,6 +105,46 @@ function AppPanel({ tab, team }) {
 
                 <div id={styles.calendar_grid}>
                     {calendarGrid}
+                </div>
+            </div>
+        )
+    }
+
+    // tasks
+    let userAssignedTasks = [];
+    let tasks = [];
+
+    for(var i = 0; i < team.tasks.length; i++) {
+        if(team.tasks[i].assignees.includes(user.name)) {
+            userAssignedTasks.push(
+                <div class={styles.task}>
+                    <h4>{team.tasks[i].name}</h4>
+                    <p>{team.tasks[i].desc}</p>
+                </div>
+            )
+        } else {
+            tasks.push(
+                <div class={styles.task}>
+                    <h4>{team.tasks[i].name}</h4>
+                    <p>{team.tasks[i].desc}</p>
+                </div>
+            )
+        } // if the task isnt assigned to the user, put it in the all tasks category.
+    }
+    if(tab == "tasks") {
+        return (
+            <div id={styles.tasks}>
+                <div id={styles.assigned_tasks}>
+                    <h3>Assigned Tasks</h3>
+                    <div id={styles.assigned_tasks_inner}>
+                        {userAssignedTasks}
+                    </div>
+                </div>
+                <div id={styles.all_tasks}>
+                    <h3>All Tasks</h3>
+                    <div id={styles.all_tasks_inner}>
+                        {tasks}
+                    </div>
                 </div>
             </div>
         )

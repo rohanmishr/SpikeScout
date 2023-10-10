@@ -31,7 +31,7 @@ export default function RegisterTeam() {
           // Set the content for unauthorized users
           setContent(
             <div>
-              <h1>Unauthorized Access</h1>
+              <h1>401 Unauthorized Access</h1>
               <p>You are not authorized to view this page.</p>
             </div>
           );
