@@ -9,15 +9,54 @@
 }
 
 #left {
+    display: flex;
+    align-items: center;
     position: absolute;
     height: 100%;
     width: 50vw;
     left:0;
     background-color: green;
-    line-height: 50%;
 }
 
 #left h2 {
+    color: #283035;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Rounded Mplus 1c Bold;
     margin-left: 3vw;
-    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5)
+}
+
+#right {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    width: 50vw;
+    right:0;
+    background-color: red;
+    text-align: right;
+    justify-content: right;
+}
+
+#right h2 {
+    color: #283035;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Rounded Mplus 1c Bold;
+    margin-right: 3vw;
+    font-size: medium;
+}
+
+#signup {
+    width: 6vw;
+    height: 4vh;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background: #323C42;
+    border-radius: 1vw;
+    border: none;
+    margin-right: 2.5vw;
+    transition: 0.25s;
+}
+
+#signup:hover {
+    background: #283035;
+    cursor: pointer;
 }
