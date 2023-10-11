@@ -1,7 +1,7 @@
 #header {
     position: absolute;
     background-color: #C4DBFF;
-    height: 5vh;
+    height: 8vh;
     width: 100vw;
     margin: 0;
     top: 0;
@@ -15,7 +15,6 @@
     height: 100%;
     width: 50vw;
     left:0;
-    background-color: green;
 }
 
 #left h2 {
@@ -32,14 +31,12 @@
     height: 100%;
     width: 50vw;
     right:0;
-    background-color: red;
     text-align: right;
     justify-content: right;
 }
 
 #right h2 {
     color: #283035;
-    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     font-family: Rounded Mplus 1c Bold;
     margin-right: 3vw;
     font-size: medium;
@@ -59,4 +56,111 @@
 #signup:hover {
     background: #283035;
     cursor: pointer;
+}
+
+#container {
+    position: absolute;
+    top: 8vh;
+    height: 92vh;
+    width: 100vw;
+    background-color: #C4DBFF;
+}
+
+#container h1 {
+    font-size: 9vh;
+    color: #283035;
+    font-family: Rounded Mplus 1c Bold;
+}
+
+#container h2 {
+    font-size: 3vh;
+    color: #283035;
+    font-family: Rounded Mplus 1c Bold;
+    display: flex;
+}
+
+#textContainer {
+    position: absolute;
+    top: 10vh;
+    left: 5vw;
+    width: 40vw;
+    height: 80vh;
+    background-color: #C4DBFF;
+}
+
+
+#learnMore {
+    margin-top: 3vh;
+    background: #2D71F7;
+    border-radius: 2vw;
+    width: 15vw;
+    border: none;
+    height: 6vh;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #FFF;
+    font-family: Rounded Mplus 1c Bold;
+    font-size: 2vh;
+    font-weight: bold;
+    transition: 0.25s;
+}
+
+#learnMore:hover {
+    background: #1E5BE6;
+    cursor: pointer;
+}
+
+#contLeft {
+    position: absolute;
+    top: 10vh;
+    right: 5vw;
+    width: 40vw;
+    height: 80vh;
+}
+
+#main {
+    position: absolute;
+    top: 100vh;
+    height: 100vh;
+    width: 100vw;
+    background-color: #C4DBFF;
+}
+
+#infoHero {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90vw;
+    height: 50vh;
+    font-family: Rounded Mplus 1c Bold;
+    color: #283035;
+    background: #B5BEE8;
+    border-radius: 5vh;
+}
+
+#heroContainer {
+    position: relative;
+    top: 10vh;
+    background-color: red;
+    width: 100vw;
+    height: 40vh;
+}
+
+#heroContainer h1 {
+    position: relative;
+    top: -13.5vh;
+}
+
+.number {
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    padding: 10px;
+    background: #fff;
+    border: 3px solid #000;
+    color: #000;
+    text-align: center;
+    font: 32px Arial, sans-serif;
 }
