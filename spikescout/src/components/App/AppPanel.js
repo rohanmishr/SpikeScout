@@ -116,7 +116,7 @@ function AppPanel({ tab, team, user }) {
     let sets = [];
     for(var i = 0; i < team.datasets.length; i++) {
         sets.push(
-            <button class={styles.dataset}>
+            <button onClick={(t) => enterDataset()} class={styles.dataset}>
                 <h3>{team.datasets[i].name}</h3>
             </button>
         );
@@ -131,16 +131,36 @@ function AppPanel({ tab, team, user }) {
         }
     }
 
+    const [scoutHtml, setHtml] = React.useState( 
+    (
+        <div id={styles.scout}>
+                <div>
+                    <h3>Datasets</h3>
+                    <div id={styles.datasets}>
+                        {sets}
+                        <button onClick={createDataset()} class={styles.dataset}>
+                            <h3 id={styles.add_dataset}>+</h3>
+                        </button>
+                    </div>
+                </div>
+            </div>
+    ) 
+    )
+
+    const enterDataset = (set) => {
+        return () => {
+            setHtml( (
+                <div>
+                    <h1>{set.name}</h1>
+                </div>
+            ) )
+        }
+    }
+
     if(tab == "scout") {
         return (
-            <div id={styles.scout}>
-                <h3>Datasets</h3>
-                <div id={styles.datasets}>
-                    {sets}
-                    <button onClick={createDataset()} class={styles.dataset}>
-                        <h3 id={styles.add_dataset}>+</h3>
-                    </button>
-                </div>
+            <div>
+                {scoutHtml}
             </div>
         )
     }
