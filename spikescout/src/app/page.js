@@ -31,15 +31,23 @@ export default function Main() {
                 <div id={styles.main}>
                     <div id={styles.infoHero}>
                         <div id={styles.heroContainer}>
-                            <h1>How we can help you</h1>
-                            <div class={styles.number}>
-                                <h2>1</h2>
+                            <div id={styles.heroTitle}>
+                                <h1>How we can help</h1>
                             </div>
-                            <div class={styles.number}>
-                                <h2>2</h2>
+                            <div class={styles.heroFeatures}>
+                                <div class={styles.number}>
+                                    <h2>1</h2>
+                                </div>
                             </div>
-                            <div class={styles.number}>
-                                <h2>3</h2>
+                            <div class={styles.heroFeatures}>
+                                <div class={styles.number}>
+                                    <h2>2</h2>
+                                </div>
+                            </div>
+                            <div class={styles.heroFeatures}>
+                                <div class={styles.number}>
+                                    <h2>3</h2>
+                                </div>
                             </div>
                         </div>
                     </div>
