@@ -1,148 +1,154 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap');
 
-.login_input {
-  display: block;   
-  width: 30vw;
-  height: 4vh;
-  margin-top: 0.5vh;
-  margin-bottom: 1vh;
-  background-color: rgba(0, 0, 0, 0);  
-  border: none;
-  border-bottom: 0.25px solid grey;
-  padding-left: 0.5vw;
+#imgContainer {
+  width: 50vw;
+  height: 100vh;
+  background: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#formContainer {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: white;
   color: black;
-  transition: border-bottom 0.3s ease-in-out;
-}
-
-.login_input:focus {
-  outline: none;
-  border-bottom: 0.25px solid #e72660;
-}
-
-#container {
-  display: flex;
-  justify-content: right;
-  align-items: center;
+  width: 50vw;
   height: 100vh;
-  width: 100vw;
-  overflow-y: hidden;
 }
 
-#login {
-  padding-top: 2.5vh;
-  display: flex;
-  position: absolute;
-  left: 3vw;
-  border-radius: 3vw;
-  float: right;
-  flex-direction: column;
-  border: 1px solid var(--border-col-primary);
-  /* border-radius: 1.7vw; */
-  /* background-color: var(--box-col-primary); */
-  background-color: rgb(255, 255, 255, 0.9);
-  width: 40vw;
-  margin-top: 10vh;
-  /* padding-top: 1vh; */
-  height: 80vh;
-  align-items: center;
-  box-shadow: 0 0 3vw 0 rgba(0, 0, 0, 0.7);
-}
-
-#block_right {
-  float:left;
-  display: flex;
-  flex-direction: column;
-  background-image: url("https://www.creativefabrica.com/wp-content/uploads/2023/05/11/Modern-colourful-abstract-background-Graphics-69439498-1.jpg"); /*TODO chnge */
-  width: 100vw;
-  height: 100vh;
-  align-items: center;
-}
-
-.slogan {
-  font-family: 'Helvetica', 'Arial', sans-serif;
-  position: absolute;
-  bottom: 0;
-  margin-left: 5vw;
-  margin-right: 5vw;
-  text-align: left;
-  font-size: 2.5vw;
-  font-weight: bold;
-  color: white;
-}
-
-.divider {
-  border-top: 1px solid #bbb;
-}
-
-#login_inner {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /* border: 1px solid var(--border-col-secondary); */
-  border-radius: 1.7vw;
-  /* background-color: var(--box-col-secondary); */
-  width: 40vw;
-  height: 50vh;
-}
-
-#spacer {
+#stepCounter {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  width: auto;
   height: 5vh;
-}
-
-.login_input {
-  display: block;
-  width: 30vw;
-  height: 4vh;
-  margin-top: 0.5vh;
-  margin-bottom: 1vh;
-  background-color: rgba(0, 0, 0, 0);  
-  border: none;
-  border-bottom: 0.2px solid lightgray;
-  padding-left: 0.5vw;
-  color: black;
-  transition: border-bottom 0.3s ease-in-out;
-}
-
-.login_input:focus {
-  outline: none;
-  border-bottom: 0.5px solid #e72660;
-}
-
-#login_button,
-#github_login_button {
-  width: 30vw;
-  height: 4vh;
-  border-radius: 5vw;
-  border: none;
-  background-color: #e72660;
-  color: white;
-  font-weight: bold;
-  transition: filter 0.3s ease-in-out;
-}
-
-#header {
-  color: #000;
-}
-
-#login_button {
   margin-top: 3vh;
+  margin-left: 2vw;
+  color: black;
+  font-size: 1vw;
 }
 
-#divider {
-  margin-top: 2vh;
-  margin-bottom: 2vh;
-  width: 30vw;
-  height: 0.1vh;
+#welcomeContainer {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  width: auto;
+  height: 10vh;
+  margin-top: 15vh;
+}
+
+#welcomeContainer h2 {
+  color: black;
+  font-size: 2vw;
+  font-weight: bold;
+}
+
+#welcomeContainer h3 {
+  margin-top: -2.5vh;
+  color: #635D5D;
+  font-size: 1vw;
+}
+
+.loginInput {
+  font-size: 1vw;
+  height: 8vh;
+  width: 25vw;
+  background: none;
+  border : 0.25vh solid #7F7676;
+  border-radius: 0.60vw;
+  position: absolute;
+  left: 5vw;
+  top: calc(35vh);
+  transition: 0.5s;
+  padding-left: 1vw;  
+  color: #7F7676;
+}
+
+
+.loginInput:focus {
+  outline: none;
+  border: 2px solid #2D71F7;
+}
+
+.passwordInput {
+  font-size: 1vw;
+  height: 8vh;
+  width: 25vw;
+  background: none;
+  border : 0.25vh solid #7F7676;
+  border-radius: 0.60vw;
+  position: absolute;
+  left: 5vw;
+  top: calc(47.5vh);
+  transition: 0.5s;
+  padding-left: 1vw;  
+  color: #7F7676;
+}
+
+.passwordInput:focus {
+  outline: none;
+  border: 2px solid #2D71F7;
+}
+
+#loginButton {
+  font-size: 1.5vw;
+  position: absolute;
+  top: 62vh;
+  left: 5.5vw;
+  width: 25vw;
+  background: linear-gradient(90deg, #83C1E6 0.16%, rgba(131, 193, 230, 0.84) 30.88%, rgba(107, 217, 235, 0.66) 66.81%, rgba(96, 229, 237, 0.50) 99.26%, rgba(96, 229, 237, 0.50) 99.26%);
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
   border: none;
+  border-radius: 0.60vw;
+  height: 8vh;
+  font-size: x-large;
+  transition: 0.25s;
 }
 
-#login_button:hover,
-#github_login_button:hover {
+#loginButton:hover {
   cursor: pointer;
-  filter: brightness(1.5);
+  backdrop-filter: brightness(90%);
+  background: linear-gradient(90deg, #83C1E6 0.16%, rgba(131, 193, 230, 0.84) 30.88%, rgba(107, 217, 235, 0.66) 66.81%, rgba(96, 229, 237, 0.50) 99.26%, rgba(96, 229, 237, 0.50) 99.26%);
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border: none;
+  border-radius: 0.60vw;
+  height: 8vh;
 }
 
-#github_login_button {
-  margin-top: 0.7vh;
+#forgotPassword {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 1vw;
+  position: absolute;
+  top: 72vh;
+  left: 5.5vw;
+  width: auto;
+  height: 8vh;
+  background: none;
+  border: none;
+  color: #2D71F7;
+  transition: 0.25s;
+}
+
+#forgotPassword:hover {
+  color: #2D71F7;
+  text-decoration: underline;
+}
+
+#createAccount {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 1vw;
+  position: absolute;
+  top: 75vh;
+  left: 5.5vw;
+  width: auto;
+  height: 8vh;
+  background: none;
+  border: none;
+  color: #2D71F7;
+  transition: 0.25s;
+}
+
+#createAccount:hover {
+  color: #2D71F7;
+  text-decoration: underline;
 }
