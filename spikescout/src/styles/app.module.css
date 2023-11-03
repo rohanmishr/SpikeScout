@@ -271,8 +271,16 @@
     width: 9vw;
   }
   .calendar_month_changer {
-    height: 2vh;
+    height: 1vw;
     margin-left: 1vw;
+    border-radius: 0.5vw;
+    border: 1px solid var(--border-col-primary);
+    background-color: transparent;
+    transition: 0.5s ease;
+  }
+
+  .calendar_month_changer:hover {
+    background-color: var(--box-col-secondary);
   }
 
   /* scout */
