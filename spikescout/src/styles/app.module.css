@@ -42,6 +42,10 @@
   margin-left: auto;
   padding-right: 1.5vh;
 }
+
+#app_tab_header {
+  margin-left: 1vw;
+}
   
   #app_header_right h3 {
     font-size: 0.9em;
@@ -86,6 +90,97 @@
     flex-direction: column;
     width: 80vw;
     padding-left: 1vw;
+  }
+
+  /* dashboard */
+  #dashboard_top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 9vh;
+    flex-direction: row;
+    width: 85vw;
+  }
+
+  #dashboard_welcome {
+    color: gray;
+    display: inline-flex;
+    height: 3vh;
+    width: 20vw;
+  }
+
+  #dashboard_searchBar {
+    display: inline-flex;
+    height: 5vh;
+    border-radius: 1vh;
+    width: 13vw;
+  }
+
+  #dashboard_statsDisplay {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--box-col-primary);
+    border-radius: 3vh;
+    border: 1px solid var(--border-col-primary);
+    width: 85vw;
+    height: 15vh;
+    align-items: center;
+    transition: 1s ease;
+  }
+
+  #dashboard_statsDisplay:hover {
+    background-color: var(--box-col-secondary);
+  }
+
+  .dashboard_statWidget {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 12vw;
+    height: 12vh;
+    background-color: rgb(40, 40, 40);
+    border-radius: 2.5vh;
+    margin-left: 1vw;
+  }
+
+  #dashboard_flex_container {
+    display: flex;
+    flex-direction: row;
+    width: 90vw;
+  }
+
+  #dashboard_activity, #dashboard_inbox {
+    display: inline-flex;
+    flex-direction: column;
+    margin-top: 2vh;
+    background-color: var(--box-col-primary);
+    border-radius: 3vh;
+    border: 1px solid var(--border-col-primary);
+    height: 70vh;
+    width: 25vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    transition: 1s ease;
+  } 
+
+  #dashboard_inbox {
+    margin-left: 31vw;
+  }
+
+  #dashboard_activity:hover, #dashboard_inbox:hover {
+    background-color: var(--box-col-secondary);
+  }
+
+  #dashboard_activity_report_button {
+    height: 5vh;
+    background-color: var(--box-col-secondary);
+    border: 1px solid var(--border-col-primary);
+    border-radius: 1vh;
+    transition: 0.25s ease;
+  }
+
+  #dashboard_activity_report_button:hover {
+    border: 1px solid white;
   }
 
   /* calendar */

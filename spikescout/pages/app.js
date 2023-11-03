@@ -48,6 +48,7 @@ export default function App({ user }) {
                         />
                         <h1>SpikeScout</h1>
                     </div>
+                    <h1 id={styles.app_tab_header}>{tab[0].toUpperCase() + tab.slice(1, tab.length)}</h1>
                     <div id={styles.app_header_right}>
                         <h3>{(user ?? Guest).name}</h3>
                     </div>
@@ -61,7 +62,6 @@ export default function App({ user }) {
                         <button onClick={tabSwitchHandler("options")} class={styles.app_sidebar_button} id={styles.options_button}>Options</button>
                     </div>
                     <div id={styles.app_panel}>
-                        <h1>{tab[0].toUpperCase() + tab.slice(1, tab.length)}</h1>
                         <AppPanel tab={tab} team={(user ?? Guest).team} user={(user ?? Guest)} />
                     </div>
                 </div>

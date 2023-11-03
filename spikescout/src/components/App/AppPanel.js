@@ -16,8 +16,62 @@ function AppPanel({ tab, team, user }) {
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
+    let sets = [];
     const [month, setMonth] = React.useState(new Date().getMonth());
     const [yr, setYear] = React.useState(new Date().getFullYear());
+    const [scoutHtml, setHtml] = React.useState( 
+        (
+            <div id={styles.scout}>
+                    <div>
+                        <h3>Datasets</h3>
+                        <div id={styles.datasets}>
+                            {sets}
+                            <button onClick={createDataset()} class={styles.dataset}>
+                                <h3 id={styles.add_dataset}>+</h3>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+        ) 
+        )
+    // Dashboard
+    if(tab == "dashboard") {
+        return (
+            <div>
+                <div id={styles.dashboard_top}>
+                    <h3 id={styles.dashboard_welcome}>Hi, {user.name}</h3>
+                    <input id={styles.dashboard_searchBar} placeholder="Search..."></input>
+                </div>
+                <div id={styles.dashboard_statsDisplay}>
+                    <div class={styles.dashboard_statWidget}>
+                        <h3>Members: {team.members.get("Administrators").length +
+                                      team.members.get("Managers").length + 
+                                      team.members.get("Members").length}</h3>
+                    </div>
+
+                    <div class={styles.dashboard_statWidget}>
+                        <h3>Upcoming events: {team.events.length}</h3>
+                    </div>
+
+                    <div class={styles.dashboard_statWidget}>
+                        <h3>Datasets: {team.datasets.length}</h3>
+                    </div>
+                </div>
+
+                <div id={styles.dashboard_flex_container}>
+                    <div id={styles.dashboard_activity}>
+                        <h1>Activity</h1>
+                        <button id={styles.dashboard_activity_report_button}>Activity Report</button>
+                    </div>
+                    <div id={styles.dashboard_inbox}>
+                        <h1>Inbox</h1>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    // Calendar
 
     // Get the day of the week of the first day of the month and days in the month
     const firstDay = weekdays[new Date(yr, month, 1).getDay()];
@@ -113,7 +167,6 @@ function AppPanel({ tab, team, user }) {
     // Scouting (the main things)
 
     // 1. get the already present datasets from the team
-    let sets = [];
     for(var i = 0; i < team.datasets.length; i++) {
         sets.push(
             <button onClick={(t) => enterDataset()} class={styles.dataset}>
@@ -130,22 +183,6 @@ function AppPanel({ tab, team, user }) {
             team.datasets.push(newDataset);
         }
     }
-
-    const [scoutHtml, setHtml] = React.useState( 
-    (
-        <div id={styles.scout}>
-                <div>
-                    <h3>Datasets</h3>
-                    <div id={styles.datasets}>
-                        {sets}
-                        <button onClick={createDataset()} class={styles.dataset}>
-                            <h3 id={styles.add_dataset}>+</h3>
-                        </button>
-                    </div>
-                </div>
-            </div>
-    ) 
-    )
 
     const enterDataset = (set) => {
         return () => {

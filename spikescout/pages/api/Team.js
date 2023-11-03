@@ -10,6 +10,10 @@ class Team {
                 ["Members", []]
             ]
         );
+        
+        this.activity = [
+            
+        ]
 
         this.subteams = [];
         this.events = [];
