@@ -283,6 +283,84 @@
     background-color: var(--box-col-secondary);
   }
 
+  /* tasks */
+  #tasks_all {
+    display: inline-flex;
+    flex-direction: column;
+    width: 16vw;
+  }
+
+  #tasks_all_header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .tag {
+    width: auto;
+    height: 2vh;
+    display: inline-flex;
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: 0.5vh;
+    font-size: 1vh;
+    margin-right: 0.5vw;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5vh;
+  }
+
+  #strong {
+    font-weight: 750;
+  }
+
+  #create_new_task {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2vw;
+    width: 2vw;
+    margin-left: 1vw;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.5);
+    border-radius: 0.25vw;
+  }
+
+  .task {
+    height: 10vh;
+    width: 15vw;
+    border: 1px solid var(--border-col-primary);
+    display: flex;
+    flex-direction: column;
+    padding-left: 1vw;
+    border-radius: 1vw;
+    overflow-y: auto;
+    transition: 0.25s ease;
+  }
+
+  .task:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+  }
+
+  #tasks_assigned {
+    display: inline-flex;
+    flex-direction: column;
+    margin-left: 1vw;
+    width: 16vw;
+  }
+
+  #task_viewer {
+    display: inline-flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-left: 2vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    width: 30vw;
+    background-color: rgba(255, 255, 255, 0.02);
+    height: 100vh;
+  }
+
   /* scout */
   #datasets {
     display: flex;

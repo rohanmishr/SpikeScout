@@ -34,6 +34,11 @@ function AppPanel({ tab, team, user }) {
                 </div>
         ) 
         )
+    const [taskViewer, setTaskViewer] = React.useState(
+        <div id={styles.task_viewer}>
+            <p>Click on a task to view its details, progress, and more.</p>
+        </div>
+    )
     // Dashboard
     if(tab == "dashboard") {
         return (
@@ -160,6 +165,67 @@ function AppPanel({ tab, team, user }) {
                 <div id={styles.calendar_grid}>
                     {calendarGrid}
                 </div>
+            </div>
+        )
+    }
+
+    if(tab == "tasks") {
+        let tasks = [];
+        let assignees = [];
+        let tags = [];
+
+        const taskClickHandler = (task) => {
+            return () => {
+                assignees = [];
+                tags = [];
+
+                for(var i = 0; i < task.assignees.length-1; i++) {
+                    assignees.push(task.assignees[i] + ", ");
+                } assignees.push(task.assignees[task.assignees.length-1]);
+                
+                console.log(task.properties);
+                for(var i = 0; i < task.properties.tags.length; i++) {
+                    tags.push(
+                        <div class={styles.tag}>
+                            {task.properties.tags[i]}
+                        </div>
+                    )
+                    console.log(tags);
+                }
+
+                setTaskViewer(
+                    <div id={styles.task_viewer}>
+                        <h1>{task.name}</h1>
+                        <div id={styles.tags}>{tags}</div>
+                        <h3><span id={styles.strong}>Assigned to:</span> {assignees}</h3>
+                        <p>{task.desc}</p>
+                    </div>
+                )
+            }
+        }
+        for(var i = 0; i < team.tasks.length; i++) {
+            tasks.push(
+                <div class={styles.task} onClick={taskClickHandler(team.tasks[i])}>
+                    <h2>{team.tasks[i].name}</h2>
+                    <p>{team.tasks[i].desc}</p>
+                </div>
+            )
+        }
+
+        return (
+            <div id={styles.tasks}>
+                <div id={styles.tasks_all}>
+                    <div id={styles.tasks_all_header}>
+                        <h1>All tasks</h1> <button id={styles.create_new_task}>+</button>
+                    </div>
+                    {tasks}
+                </div>
+
+                <div id={styles.tasks_assigned}>
+                    <h1>Assigned tasks</h1>
+                </div>
+
+                {taskViewer}
             </div>
         )
     }

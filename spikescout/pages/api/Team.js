@@ -15,6 +15,8 @@ class Team {
             
         ]
 
+        this.tasks = [];
+
         this.subteams = [];
         this.events = [];
         this.datasets = [];

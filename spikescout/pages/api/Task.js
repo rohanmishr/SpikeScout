@@ -3,15 +3,15 @@ const IN_PROGRESS = 1;
 const FINISHED = 2;
 
 class Task {
-    constructor(name, desc, assignees, properties) {
+    constructor(name, desc, assignees=[], properties={
+        status: NOT_STARTED, // STATUSES: Not started, In progress, Completed, 
+        tags: [],
+        dueDate: null
+    }) {
         this.name = name;
         this.desc = desc;
         this.assignees = assignees;
-        this.properties = {
-            tags: [],
-            dueDate: null,
-            status: NOT_STARTED, // STATUSES: Not started, In progress, Completed, 
-        }
+        this.properties = properties;
     }
 }
 

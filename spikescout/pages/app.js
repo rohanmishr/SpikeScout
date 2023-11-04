@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Team from '../pages/api/Team'
 import CalendarEvent from '../pages/api/CalendarEvent'
 import CalendarDate from '../pages/api/CalendarDate'
+import Task from '../pages/api/Task'
 import JoinTeam from '../pages/join-team'
 
 // components
@@ -15,6 +16,11 @@ const inter = Inter({ subsets: ['latin'] })
 const TestTeam = new Team(999, "TestTeam", "Las Vegas, Nevada");
 TestTeam.events.push(new CalendarEvent(new CalendarDate(11, 10, 2023), "Test Event", "An event description."));
 TestTeam.events.push(new CalendarEvent(new CalendarDate(11, 10, 2023), "Test Event 2", "An event description."));
+TestTeam.tasks.push(new Task("Test Task", "A task description.", ["Rohan Mishra", "Nathan Edgington", "Justin Edgington", "Maxim Kudryashov"], {
+    tags: ["Programming", "Swerve"],
+    dueDate: new CalendarDate(11, 10, 2023),
+    status: 0
+}));
 
 export default function App({ user }) {
     /*if((user ?? {team:undefined}).team == undefined) {
