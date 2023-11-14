@@ -3,6 +3,8 @@ import RegisterTeam from '../../../pages/register-team';
 import styles from '../../styles/app.module.css'
 import React from 'react'
 import Dataset from '../../../pages/api/Dataset';
+import ProgressReport from '../../../pages/api/ProgressReport';
+import Task from '../../../pages/api/Task'
 
 function AppPanel({ tab, team, user }) {
     if(team == undefined) {
@@ -172,6 +174,9 @@ function AppPanel({ tab, team, user }) {
     if(tab == "tasks") {
         let tasks = [];
         let assignees = [];
+        let reports = [(
+            <h3>Reports will appear here.</h3>
+        )];
         let tags = [];
 
         const taskClickHandler = (task) => {
@@ -199,24 +204,52 @@ function AppPanel({ tab, team, user }) {
                         <div id={styles.tags}>{tags}</div>
                         <h3><span id={styles.strong}>Assigned to:</span> {assignees}</h3>
                         <p>{task.desc}</p>
+                        <button id={styles.new_progress_report} onClick={reportClickHandler(task)}>New Progress Report</button>
+                        {reports}
                     </div>
                 )
             }
         }
+
+        const reportClickHandler = (task) => {
+            return () => {
+                let newReport = new ProgressReport();
+                newReport.content = window.prompt("Report content:");
+                task.progressReports.push(newReport);
+
+                reports = [];
+                for(var i = 0; i < task.progressReports.length; i++) {
+                    reports.push(
+                        <div class={styles.progress_report}>
+                            <p>{task.progressReports[i].content}</p>
+                        </div>
+                    )
+                }
+                taskClickHandler(task)();
+            }
+        }
+
+        const createNewTask = () => {
+            return () => {
+                let newTask = new Task(window.prompt("Task name:"), window.prompt("Task description:"));
+                team.tasks.push(newTask);
+                taskClickHandler(newTask)();
+            }
+        }
+
         for(var i = 0; i < team.tasks.length; i++) {
             tasks.push(
                 <div class={styles.task} onClick={taskClickHandler(team.tasks[i])}>
                     <h2>{team.tasks[i].name}</h2>
-                    <p>{team.tasks[i].desc}</p>
+                    <p>{team.tasks[i].desc.slice(0, 40) + (team.tasks[i].desc.length < 40 ? "" : "...")}</p>
                 </div>
             )
         }
-
         return (
             <div id={styles.tasks}>
                 <div id={styles.tasks_all}>
                     <div id={styles.tasks_all_header}>
-                        <h1>All tasks</h1> <button id={styles.create_new_task}>+</button>
+                        <h1>All tasks</h1> <button onClick={createNewTask()} id={styles.create_new_task}>+</button>
                     </div>
                     {tasks}
                 </div>

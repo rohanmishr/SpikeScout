@@ -12,6 +12,7 @@ class Task {
         this.desc = desc;
         this.assignees = assignees;
         this.properties = properties;
+        this.progressReports = [];
     }
 }
 
