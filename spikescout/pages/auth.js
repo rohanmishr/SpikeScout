@@ -8,16 +8,23 @@ import bgimg from '../public/loginbackpng.png'
 
 import App from './app'
 
-export default function Home() {
+export default function Auth() {
+  
   const [loggedInUser, setLoggedInUser] = useState(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const router = useRouter();
+
+  // Check if user is not defined before redirecting
+  if (loggedInUser) {
+    router.push('/app');
+  }
 
   const login = async (email, password) => {
     try {    
       const session = await account.createEmailSession(email, password);
-      setLoggedInUser(await account.get()); 
+      setLoggedInUser(await account.get());       
       window.location.replace("/app");
     } catch (error) {
       alert(error.message);
@@ -52,7 +59,9 @@ export default function Home() {
     router.push("/app", undefined);
 
     {/* this needs to be changed to use the router, so that it can be spikescout.com/app */}
-  }
+  } 
+  
+
 
   {/* 
     <button id={styles.login_button} type="button" onClick={register}>

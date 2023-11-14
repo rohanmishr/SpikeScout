@@ -8,9 +8,11 @@ import CalendarEvent from '../pages/api/CalendarEvent'
 import CalendarDate from '../pages/api/CalendarDate'
 import Task from '../pages/api/Task'
 import JoinTeam from '../pages/join-team'
-
+import isUserLoggedIn from './auth'
 // components
 import AppPanel from '../src/components/App/AppPanel'
+import { useRouter } from 'next/navigation'
+import { useEffect } from 'react';
 
 const inter = Inter({ subsets: ['latin'] })
 const TestTeam = new Team(999, "TestTeam", "Las Vegas, Nevada");
@@ -28,6 +30,16 @@ export default function App({ user }) {
             <JoinTeam />
         )
     }*/
+    // user not authenticated
+    const router = useRouter();
+    useEffect(() => {
+        // Check if user is not defined before redirecting
+        if (isUserLoggedIn(user)) {
+            alert('User:', user);
+
+          router.push('/auth');
+        }
+      }, [user]);
     const [tab, switchTab] = React.useState("dashboard");
 
     const Guest = {

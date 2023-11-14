@@ -13,7 +13,7 @@ export default function Main() {
                 <div id={styles.right}>
                     <a href="/"><h2>Solutions</h2></a>
                     <a href="/"><h2>About us</h2></a>
-                    <a href="/"><h2>Login</h2></a>
+                    <a href="/auth"><h2>Login</h2></a>
                     <button id={styles.signup}>Sign up</button>
                 </div>
                 <div id={styles.container}>

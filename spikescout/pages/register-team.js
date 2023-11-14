@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Client, Account, Teams } from 'appwrite';
+import { Account, Teams } from 'appwrite';
+import client from '../pages/appwrite';
 
-const client = new Client();
-client
-  .setEndpoint('https://cloud.appwrite.io/v1')
-  .setProject('651e10942f2cd0797080');
 
 const account = new Account(client);
 
