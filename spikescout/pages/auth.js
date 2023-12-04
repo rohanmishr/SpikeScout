@@ -9,7 +9,6 @@ import bgimg from '../public/loginbackpng.png'
 import App from './app'
 
 export default function Auth() {
-  
   const [loggedInUser, setLoggedInUser] = useState(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

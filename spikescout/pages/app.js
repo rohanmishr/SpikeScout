@@ -8,7 +8,7 @@ import CalendarEvent from '../pages/api/CalendarEvent'
 import CalendarDate from '../pages/api/CalendarDate'
 import Task from '../pages/api/Task'
 import JoinTeam from '../pages/join-team'
-import isUserLoggedIn from './auth'
+// import isUserLoggedIn from './auth'
 // components
 import AppPanel from '../src/components/App/AppPanel'
 import { useRouter } from 'next/navigation'
@@ -31,6 +31,8 @@ export default function App({ user }) {
         )
     }*/
     // user not authenticated
+
+    /*
     const router = useRouter();
     useEffect(() => {
         // Check if user is not defined before redirecting
@@ -40,6 +42,8 @@ export default function App({ user }) {
           router.push('/auth');
         }
       }, [user]);
+    */
+   
     const [tab, switchTab] = React.useState("dashboard");
 
     const Guest = {

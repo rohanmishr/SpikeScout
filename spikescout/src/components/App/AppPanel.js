@@ -1,13 +1,9 @@
-import Team from '../../../pages/api/Team'; // whats the error when they are not logged in
+import Team from '../../../pages/api/Team';
 import RegisterTeam from '../../../pages/register-team';
+import Task from '../../../pages/api/Task';
 import styles from '../../styles/app.module.css'
 import React from 'react'
 import Dataset from '../../../pages/api/Dataset';
-import client from '../../../pages/appwrite'
-import { ID, Account } from 'appwrite';
-
-const account = new Account(client);
-
 
 function AppPanel({ tab, team, user }) {
     if(team == undefined) {
@@ -42,6 +38,12 @@ function AppPanel({ tab, team, user }) {
     const [taskViewer, setTaskViewer] = React.useState(
         <div id={styles.task_viewer}>
             <p>Click on a task to view its details, progress, and more.</p>
+        </div>
+    )
+
+    const [eventViewer, setEventViewer] = React.useState(
+        <div id={styles.calendar_event_viewer}>
+            <p>Click on an event to view its details, progress, and more.</p>
         </div>
     )
     // Dashboard
@@ -87,6 +89,18 @@ function AppPanel({ tab, team, user }) {
     const firstDay = weekdays[new Date(yr, month, 1).getDay()];
     const daysInMonth = new Date(yr, month, 0).getDate();
 
+    const eventClickHandler = (ev) => {
+        return () => {
+            setEventViewer(
+                <div id={styles.calendar_event_viewer}>
+                    <h1>{ev.name}</h1>
+                    <h3>{ev.date.month}/{ev.date.day}/{ev.date.year}</h3>
+                    <p>{ev.desc}</p>
+                </div>
+            );
+        }
+    };
+
     const calendarGrid = [];
     calendarGrid.push(
         <div id={styles.calendar_grid_header}>
@@ -112,7 +126,7 @@ function AppPanel({ tab, team, user }) {
         let ret = [];
         for(let i = 0; i < e.length; i++) {
             ret.push(
-                <div class={[styles.calendar_event, styles.event_pink].join(" ")}>{e[i].name}</div>
+                <div onClick={eventClickHandler(e[i])}class={[styles.calendar_event, styles.event_pink].join(" ")}>{e[i].name}</div>
             );
         } 
         return ret;
@@ -141,7 +155,6 @@ function AppPanel({ tab, team, user }) {
         calendarGrid.push(<div id={styles.calendar_grid_row}>{row}</div>);
     }
 
-    //click handlers
     function prevMonth() {
         setMonth(month - 1);
         if (month === 0) {
@@ -158,18 +171,29 @@ function AppPanel({ tab, team, user }) {
         }
     }
 
+    const newEventHandler = () => {
+        return () => {
+
+        }
+    }
+
     if(tab == "calendar") {
         return (
             <div id={styles.calendar}>
-                <div id={styles.calendar_grid_months}>
-                    <h3 id={styles.calendar_month}>{months[month]} {yr}</h3> 
-                    <button onClick={prevMonth}class={styles.calendar_month_changer}>{'<'}</button> 
-                    <button onClick={nextMonth}class={styles.calendar_month_changer}>{'>'}</button>
+                <div id={styles.calendar_container}>
+                    <div id={styles.calendar_grid_months}>
+                        <h3 id={styles.calendar_month}>{months[month]} {yr}</h3> 
+                        <button onClick={prevMonth}class={styles.calendar_month_changer}>{'<'}</button> 
+                        <button onClick={nextMonth}class={styles.calendar_month_changer}>{'>'}</button>
+                        <button onClick={newEventHandler()} id={styles.calendar_schedule_event}>Schedule Event</button>
+                    </div>
+
+                    <div id={styles.calendar_grid}>
+                        {calendarGrid}
+                    </div>
                 </div>
 
-                <div id={styles.calendar_grid}>
-                    {calendarGrid}
-                </div>
+                {eventViewer}
             </div>
         )
     }
@@ -208,6 +232,15 @@ function AppPanel({ tab, team, user }) {
                 )
             }
         }
+
+        const newTaskHandler = () => {
+            return () => {
+                const name = window.prompt("Task name:");
+                const desc = window.prompt("Enter task description:");
+                team.tasks.push(new Task(name, desc));
+            }
+        }
+
         for(var i = 0; i < team.tasks.length; i++) {
             tasks.push(
                 <div class={styles.task} onClick={taskClickHandler(team.tasks[i])}>
@@ -221,7 +254,7 @@ function AppPanel({ tab, team, user }) {
             <div id={styles.tasks}>
                 <div id={styles.tasks_all}>
                     <div id={styles.tasks_all_header}>
-                        <h1>All tasks</h1> <button id={styles.create_new_task}>+</button>
+                        <h1>All tasks</h1> <button onClick={newTaskHandler()} id={styles.create_new_task}>+</button>
                     </div>
                     {tasks}
                 </div>

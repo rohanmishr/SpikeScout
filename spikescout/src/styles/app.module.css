@@ -125,11 +125,6 @@
     width: 85vw;
     height: 15vh;
     align-items: center;
-    transition: 1s ease;
-  }
-
-  #dashboard_statsDisplay:hover {
-    background-color: var(--box-col-secondary);
   }
 
   .dashboard_statWidget {
@@ -141,6 +136,11 @@
     background-color: rgb(40, 40, 40);
     border-radius: 2.5vh;
     margin-left: 1vw;
+  }
+
+  .dashboard_statWidget:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
   }
 
   #dashboard_flex_container {
@@ -184,9 +184,13 @@
   }
 
   /* calendar */
+  #calendar {
+    display: flex;
+    flex-direction: row;
+  }
 
   #calendar_grid {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     width: 49vw;
   }
@@ -208,7 +212,10 @@
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.025);
   }
-  
+
+  .calendar_grid_header_cell:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
 
   #calendar_grid_row {
     display: flex;
@@ -221,6 +228,10 @@
     width: 7vw;
     height: 7vw;
     overflow: hidden;
+  }
+
+  .calendar_grid_cell:hover {
+    background-color: rgba(255, 255, 255, 0.01);
   }
 
   .day {
@@ -242,6 +253,10 @@
     font-weight: 10;
   }
 
+  .calendar_event:hover {
+    cursor: pointer;
+  }
+
   .event_gray {
     background-color: rgba(43, 43, 43, 0.5);
     border: 1px solid rgb(60, 60, 60);
@@ -260,6 +275,11 @@
     color: rgb(246, 177, 255);
   }
 
+  #calendar-container {
+    display: inline-flex;
+    flex-direction: column;
+  }
+
   #calendar_grid_months {
     display: flex;
     flex-direction: row;
@@ -270,6 +290,7 @@
   #calendar_month {
     width: 9vw;
   }
+
   .calendar_month_changer {
     height: 1vw;
     margin-left: 1vw;
@@ -279,8 +300,35 @@
     transition: 0.5s ease;
   }
 
+  #calendar_schedule_event {
+    margin-left: auto;
+    background-color: transparent;
+    border: 1px solid var(--border-col-primary);
+    width: 5vw;
+    height: 3vh;
+    border-radius: 1vh;
+    transition: 0.5s ease;
+  }
+
+  #calendar_schedule_event:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+  }
+
   .calendar_month_changer:hover {
     background-color: var(--box-col-secondary);
+  }
+
+  #calendar_event_viewer {
+    display: inline-flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.01);
+    margin-left: auto;
+    margin-left: 2vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    width: 20vw;
   }
 
   /* tasks */
@@ -337,10 +385,15 @@
     overflow-y: hidden;
     transition: 0.25s ease;
     margin-top: 1vh;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.01));
+    background-size: 20vw 20vh;
+    background-position-y: 0;
+    background-repeat: no-repeat;
   }
 
   .task:hover {
     background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-col-secondary);
   }
 
   #tasks_assigned {
