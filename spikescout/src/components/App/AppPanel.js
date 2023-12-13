@@ -245,7 +245,6 @@ function AppPanel({ tab, team, user }) {
             tasks.push(
                 <div class={styles.task} onClick={taskClickHandler(team.tasks[i])}>
                     <h2>{team.tasks[i].name}</h2>
-                    <p>{team.tasks[i].desc}</p>
                 </div>
             )
         }

@@ -11,7 +11,7 @@
     border-bottom: var(--border-col-primary) 1px solid;
     display: flex;
     width: 100vw;
-    min-height: 8vh;
+    height: 8vh;
     padding-left: 1vw;
     align-items: center;
 }
@@ -323,7 +323,7 @@
     display: inline-flex;
     flex-direction: column;
     height: 100vh;
-    background-color: rgba(255, 255, 255, 0.01);
+    background-color: rgba(255, 255, 255, 0.025);
     margin-left: auto;
     margin-left: 2vw;
     padding-left: 1vw;
